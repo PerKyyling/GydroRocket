@@ -8,6 +8,7 @@ WIDTH, HEIGHT = 800, 600
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
 VECTOR_LENGTH = 150
 
+
 class Simulation(arcade.Window):
     def __init__(self, width, height, title):
         super().__init__(width, height, title, resizable=True)
@@ -20,6 +21,11 @@ class Simulation(arcade.Window):
         self.totalX = 0
         self.totalY = 0
         self.totalZ = 0
+        self.data_for_disp_a_z = []
+        self.data_for_disp_a_x = []
+        self.data_for_disp_g_z = []
+        self.data_for_disp_g_x = []
+        self.bl = True
 
     def rotate_vector(self, rotate_x, rotate_z):
         x, y, z = self.x, self.y, self.z
@@ -80,6 +86,7 @@ class Simulation(arcade.Window):
         end_2d = self.from3Dto2D(self.totalX, self.totalY, self.totalZ)
         arcade.draw_line(origin[0], origin[1], end_2d[0], end_2d[1],
                          arcade.color.RED, 5)
+
 
 def main():
     sm = Simulation(800, 600, "simulation")
